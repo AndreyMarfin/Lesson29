@@ -7,7 +7,7 @@ public class PedometerManager implements Comparable<PedometerManager> {
     private int max = 0;
 
     public int add(int day, int steps) {
-        if (day <= 0) {
+        if (day <= 0 || day > 365) {
             throw new IllegalDayException(day);
         } else if (steps >= 0) {
             int newValue = data.getOrDefault(day, 0) + steps;

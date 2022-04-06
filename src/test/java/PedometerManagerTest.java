@@ -64,6 +64,14 @@ public class PedometerManagerTest {
     }
 
     @Test
+    public void positiveOverDayTest(){
+        PedometerManager p1 = new PedometerManager();
+        Assertions.assertThrows(IllegalDayException.class,() -> {
+            p1.add(366,100);
+        });
+    }
+
+    @Test
     public void negativeStepsTest(){
         PedometerManager p1 = new PedometerManager();
         Assertions.assertThrows(IllegalStepsException.class,() -> {
